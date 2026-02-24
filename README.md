@@ -6,22 +6,58 @@ A collection of tools and utilities for working with MITRE ATT&CK framework data
 
 This repository contains tools designed to process, transform, and optimize MITRE ATT&CK data for different use cases including threat intelligence, security automation, and AI/LLM integration.
 
-Currently, there is one tool available with plans to add more utilities as needed for various security and automation workflows.
+Currently, there are two complementary tools available with plans to add more utilities as needed for various security and automation workflows.
 
 ## Tools
+
+### [MITRE ATT&CK Technique Extractor](extract_mitre/)
+
+Extracts detailed MITRE ATT&CK technique information into individual JSON files using the official `mitreattack-python` library.
+
+**Key Features:**
+
+- Comprehensive data extraction with full metadata
+- Individual JSON file per technique
+- Includes tactics, platforms, data sources, mitigations, and software
+- Preserves all external references and citations
+- Ideal for research, documentation, and integration
+
+[Read more →](extract_mitre/README.md)
 
 ### [MITRE ATT&CK JSON Simplifier](simplify-mitre-json/)
 
 Transforms official MITRE ATT&CK STIX JSON files into a simplified, token-efficient format optimized for AI/LLM consumption.
 
 **Key Features:**
+
 - Nests sub-techniques under parent techniques
 - Links software and mitigations to techniques
 - Removes citation references to reduce token usage by 40-60%
 - Tracks revoked/deprecated techniques
 - Outputs compact, sorted JSON
+- No external dependencies
 
 [Read more →](simplify-mitre-json/README.md)
+
+## Tool Comparison
+
+| Feature                  | extract_mitre                         | simplify-mitre-json                                |
+| ------------------------ | ------------------------------------- | -------------------------------------------------- |
+| **Output Format**        | Individual files per technique        | Single nested JSON file                            |
+| **Detail Level**         | Comprehensive with full metadata      | Simplified, token-optimized                        |
+| **File Size**            | Large (preserves all data)            | Compact (40-60% reduction)                         |
+| **Citations**            | Preserved                             | Removed                                            |
+| **Structure**            | Flat files with relationships         | Nested hierarchy (sub-techniques inside parents)   |
+| **Dependencies**         | mitreattack-python                    | None (stdlib only)                                 |
+| **Metadata**             | Full (timestamps, versions, domains)  | Essential only                                     |
+| **External References**  | All references included               | Excluded for token efficiency                      |
+| **Best For**             | Research, documentation, integration  | AI/LLM contexts, RAG systems                       |
+| **Use When**             | You need complete technique details   | You need efficient AI consumption                  |
+
+## Choosing the Right Tool
+
+- **Use extract_mitre** for: Security research, comprehensive documentation, platform integration, training materials
+- **Use simplify-mitre-json** for: AI/LLM knowledge bases, RAG systems, token-limited contexts, quick analysis
 
 ## About MITRE ATT&CK
 
