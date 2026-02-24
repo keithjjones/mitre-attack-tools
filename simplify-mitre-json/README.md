@@ -106,6 +106,52 @@ Root-level techniques and sub-techniques are sorted by MITRE ID for consistent, 
 
 - `ai_enterprise-attack-18.1.json` - Pre-processed Enterprise ATT&CK v18.1 dataset
 
+## Example Use Case: Google Gemini Gem
+
+One powerful application of this simplified JSON is using it as a knowledge base in a Google Gemini Gem. This allows you to create a custom AI assistant with up-to-date MITRE ATT&CK knowledge.
+
+### Setting Up a MITRE ATT&CK Gem
+
+1. Go to [gemini.google.com](https://gemini.google.com) and click on the Gem editor in the left sidebar
+2. Create a new Gem and configure it with the following settings:
+
+![Gemini Gem Setup](images/Mitre%20Gemini%20Gem.png)
+
+**Gem Configuration:**
+
+- **Name**: Mitre Att&ck Expert
+- **Description**: A Mitre Att&ck Framework Expert
+- **Instructions**:
+
+  ```text
+  You are a Mitre Att&ck framework expert, helping the user answer
+  cybersecurity questions within its framework. All MITRE ATT&CK framework
+  techniques are provided as a knowledge base in this chat. Use the
+  knowledge base instead of your own, as it may be outdated.
+
+  Do NOT make anything up. Use all of the MITRE ATT&CK data provided as a
+  knowledge base in this Gemini Gem.
+  ```
+
+- **Knowledge**: Upload the `ai_enterprise-attack-18.1.json` file directly in the Knowledge section of the Gem editor
+
+### Using the Gem
+
+Once configured, you can select the Gem from the Gem menu or the left-hand navigation bar (if recently used), then ask it specific MITRE ATT&CK questions and get accurate, up-to-date responses based on the knowledge base:
+
+![Gemini Gem Output](images/Mitre%20Gemini%20Gem%20Output.png)
+
+The Gem will answer questions about techniques, tactics, mitigations, and software using the current ATT&CK framework data, ensuring accuracy and relevance.
+
+**Try it yourself**: [MITRE ATT&CK Expert Gem](https://gemini.google.com/gem/160eKB7Su6UTbiGgVU4hH4YtZ3lOyhgEo?usp=sharing) - A working example you can use or copy as a template for your own Gem.
+
+### Why This Works
+
+- **Token Efficiency**: The 40-60% size reduction means the entire ATT&CK framework fits comfortably within Gemini's knowledge limits
+- **Up-to-Date**: Replace the JSON file whenever MITRE releases new versions
+- **Accurate**: The Gem uses the provided data instead of potentially outdated training data
+- **Comprehensive**: All techniques, sub-techniques, software, and mitigations are available for queries
+
 ## Requirements
 
 - Python 3.6+
