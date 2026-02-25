@@ -37,6 +37,8 @@ Transforms official MITRE ATT&CK STIX JSON files into a simplified, token-effici
 - Outputs compact, sorted JSON
 - No external dependencies
 
+**Try it live**: [MITRE ATT&CK Expert Gem](https://gemini.google.com/gem/160eKB7Su6UTbiGgVU4hH4YtZ3lOyhgEo?usp=sharing) - See this tool in action as a Google Gemini Gem with all three ATT&CK matrices (Enterprise, ICS, Mobile) as knowledge.
+
 [Read more →](simplify-mitre-json/README.md)
 
 ## Tool Comparison
@@ -64,6 +66,7 @@ Transforms official MITRE ATT&CK STIX JSON files into a simplified, token-effici
 MITRE ATT&CK® is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations. The ATT&CK knowledge base is used as a foundation for the development of specific threat models and methodologies in the private sector, in government, and in the cybersecurity product and service community.
 
 **Official Resources:**
+
 - [MITRE ATT&CK Website](https://attack.mitre.org/)
 - [MITRE CTI Repository](https://github.com/mitre/cti)
 - [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/)
