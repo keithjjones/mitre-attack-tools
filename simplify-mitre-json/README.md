@@ -32,13 +32,20 @@ This tool creates a **context-optimized** version that maintains the critical in
 python simplify-mitre-json.py <mitre_stix_file.json>
 ```
 
-### Example
+### Examples
 
 ```bash
+# Process Enterprise ATT&CK
 python simplify-mitre-json.py enterprise-attack-18.1.json
+
+# Process ICS ATT&CK
+python simplify-mitre-json.py ics-attack-18.1.json
+
+# Process Mobile ATT&CK
+python simplify-mitre-json.py mobile-attack-18.1.json
 ```
 
-This will generate `ai_enterprise-attack-18.1.json` with the simplified structure.
+This will generate `ai_<matrix>-attack-18.1.json` files with the simplified structure.
 
 ## Input Format
 
@@ -102,9 +109,11 @@ JSON is written with minimal separators (`separators=(',', ':')`) to further red
 ### 5. Sorted Output
 Root-level techniques and sub-techniques are sorted by MITRE ID for consistent, predictable output.
 
-## Data File Included
+## Data Files Included
 
-- `ai_enterprise-attack-18.1.json` - Pre-processed Enterprise ATT&CK v18.1 dataset
+- `ai_enterprise-attack-18.1.json` - Pre-processed Enterprise ATT&CK v18.1 dataset (1.5MB)
+- `ai_ics-attack-18.1.json` - Pre-processed ICS ATT&CK v18.1 dataset (120KB)
+- `ai_mobile-attack-18.1.json` - Pre-processed Mobile ATT&CK v18.1 dataset (205KB)
 
 ## Example Use Case: Google Gemini Gem
 
@@ -113,7 +122,8 @@ One powerful application of this simplified JSON is using it as a knowledge base
 ### Setting Up a MITRE ATT&CK Gem
 
 1. Go to [gemini.google.com](https://gemini.google.com) and click on the Gem editor in the left sidebar
-2. Create a new Gem and configure it with the following settings:
+2. Choose which ATT&CK matrix to use (Enterprise, ICS, or Mobile) based on your needs
+3. Create a new Gem and configure it with the following settings:
 
 ![Gemini Gem Setup](images/Mitre%20Gemini%20Gem.png)
 
@@ -133,7 +143,7 @@ One powerful application of this simplified JSON is using it as a knowledge base
   knowledge base in this Gemini Gem.
   ```
 
-- **Knowledge**: Upload the `ai_enterprise-attack-18.1.json` file directly in the Knowledge section of the Gem editor
+- **Knowledge**: Upload the JSON files (`ai_enterprise-attack-18.1.json`, `ai_ics-attack-18.1.json`, or `ai_mobile-attack-18.1.json`) directly in the Knowledge section of the Gem editor
 
 ### Using the Gem
 
